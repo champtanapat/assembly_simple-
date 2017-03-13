@@ -15,31 +15,25 @@ IncludeLib user32.lib
 
 .data
 
-txt1 byte "Input:  ",0
-txt2 byte "Output: ",0
+txt1 byte "Input number= ",0 
+txt2 byte "Output= ",0
 
 .code
 main PROC
-	
-	call Clrscr
 	mov edx,offset txt1
 	call WriteString
-	
 	call ReadChar
-	call WriteChar
 	call Crlf
-	
 	
 	mov edx,offset txt2
 	call WriteString
-	
-	mov ecx,5
-L1:	inc al
-	call WriteChar
+	mov ecx,10
+
+L1: 	call WriteChar
+	inc al
 	Loop L1
 	call Crlf
 	call ReadInt
 	exit
-	
 main ENDP
 END main
