@@ -11,9 +11,11 @@ IncludeLib user32.lib
 .data
 
 	byteVal byte 10001111b
-	
+	test1 byte 1001b 
+		
 .code
 main PROC
+
 	mov eax,0
 	mov al,byteVal 
 	call DumpRegs
