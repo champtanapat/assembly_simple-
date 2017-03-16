@@ -1,21 +1,14 @@
-TITLE      (.asm)
-
-; Program Description:
-; Author:
-; Date Created:
-; Last Modification Date:
-
+TITLE    increment & decrement 's Hex   (.asm)
+; เพิ่มและลดค่าลง 1 
 Include Irvine32.inc
 
 IncludeLib Irvine32.lib
 IncludeLib kernel32.lib
 IncludeLib user32.lib
 
-; (insert symbol definitions here)
-
 .data
 
-myByte byte 0FFh,0
+	myByte byte 0FFh,0
 
 .code
 main PROC
