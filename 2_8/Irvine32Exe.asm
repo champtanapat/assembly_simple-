@@ -55,6 +55,7 @@ main PROC
 	call DumpRegs
 	call Crlf
 	call WaitMsg 
+	
 	exit
 main ENDP
 END main
