@@ -1,6 +1,6 @@
 TITLE      (.asm)
 
-;แสดงเฉพาะตัวใหญ่ 
+;แสดงเฉพาะตัวใหญ่
 Include Irvine32.inc
 
 IncludeLib Irvine32.lib
