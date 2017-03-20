@@ -31,7 +31,7 @@ L1:	mov edx,offset str1
 	call WriteString
 	call ReadInt
 	mov [esi],eax		;array[esi] ไม่ได้  อย่าถามว่าทำไม เพราะไม่รู้
-	inc esi			;add esi , type dword
+	inc esi			;inc esi			;add esi , type dword  อันนี้ใช้ไม่าได้หรือป่าว มีปัญหา
 	Loop L1 
 	Ret
 PromptForIntegers endp
