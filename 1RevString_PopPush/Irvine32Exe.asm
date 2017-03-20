@@ -15,11 +15,12 @@ nameSize = ($ - aName) - 1
 main PROC
 	mov ecx,nameSize 
 	mov esi,0
-	
+;Push 
 L1:	movzx eax,aName[esi]
 	push eax
 	inc esi
 	Loop L1
+	
 ;Pop the name from the stack 
 ;and store in the aName array 
 	mov ecx,nameSize
