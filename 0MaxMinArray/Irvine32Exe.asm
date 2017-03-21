@@ -32,43 +32,56 @@ L1:	call ReadChar
 	cmp al,'9'		
 	ja L1 		;ja jg
 	mov array[esi],al
-	
 	inc ecx
 	inc esi
 	jmp L1
 	
 SET:
-	;ecx=2
-	mov eax,0
+	call Clrscr
 	mov esi,0
-	mov al,array[esi]	;bl = 9
-	call DumpRegs
-	mov max,al
+	
+L2:	mov al,array[esi]
+	call WriteChar
+	call Crlf
+	inc esi 
+	loop L2
+	
+	mov ebx,0
+	mov eax,0
+	mov ecx,esi
+	mov esi,0
+	mov al,array[esi]
+;	mov max,al
 	dec ecx
-	jmp MAX_MIN
 	
 MAX_MIN:
 	inc esi
-	cmp al,array[esi] 		; jump when bl or  soure ? less 
+	;mov bl,array[esi] 
+	cmp al,array[esi]		; jump when bl or  soure ? less 
 	jg Next				; bl > ; 1 > 9
-	mov al,array[esi]		;
-	mov max,al			;
+;	cmp al,array[esi]
+;	jnc Next
+;	mov al,array[esi]		;
+;	call DumpRegs
+;	mov max,al
+	
 Next:	
+	;mov eax,0
 	mov al,array[esi]		;
-	mov max,al			;
-	call DumpRegs		;
+	
+	mov max,al
+	call DumpRegs
 	Loop MAX_MIN		;
 	
-DONE:
 	
+	;call Clrscr
 	mov edx,offset txt2
 	call WriteString
-	mov al ,max
+	movzx eax ,al
 	call WriteChar
-	call Crlf
+	call Crlf 
 	call WaitMsg	
 	exit
-Stop: 
-	exit	
+
 main ENDP
 END main
