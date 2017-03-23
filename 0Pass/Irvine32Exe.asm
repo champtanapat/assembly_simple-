@@ -16,14 +16,14 @@ pas_cor byte "Correct",0
 pas_not byte "InCorrect",0
 pas_sor byte "Sorry",0
 pass1 byte "1234",0
-array byte ?;dup()
+array byte  ($-pass1)-1 dup (?) ;dup()
 .code
 
 main PROC
 	mov ebx,0
 	
 PRINT:	
-	call Clrscr
+	;call Clrscr
 	mov eax,0
 	mov edx,offset pas_txt
 	call WriteString

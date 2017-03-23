@@ -15,15 +15,14 @@ IncludeLib user32.lib
 
 .data
 
-txt byte "Hello World",0
-
+myDword dword 12345678h
+myByte	byte 12h
 .code
 main PROC
-	mov edx,offset txt
-	call WriteString 
-	
-	call 
-	call ReadInt
+	mov eax,myDword
+	call DumpRegs
+	mov al,myByte
+	call WaitMsg
 	exit
 main ENDP
 END main

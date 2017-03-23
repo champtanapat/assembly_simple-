@@ -15,15 +15,23 @@ IncludeLib user32.lib
 
 .data
 
-txt byte "Hello World",0
 
 .code
 main PROC
-	mov edx,offset txt
-	call WriteString 
+	mov al,-1
+	add al,1
+	lahf 		;Save flage to ah 
+	call WriteBin
+	sahf 	; Restore flage form ah 
+	call DumpRegs
 	
-	call 
-	call ReadInt
+	
+	mov eax,42
+	call DumpRegs
+	mov eax,0
+	mov eax,43
+	call DumpRegs
+	call WaitMsg
 	exit
 main ENDP
 END main
